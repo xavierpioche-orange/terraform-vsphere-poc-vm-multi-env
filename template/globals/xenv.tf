@@ -6,7 +6,7 @@ provider "vsphere" {
 }
 
 module "xenv-vm" {
-  source = "../../../globals/terraform/modules/vm-vsphere/"
+  source = "./modules/vm-vsphere/"
   vm_cpu = var.local_xenv_vm_size
   vm_memory = var.local_xenv_vm_size
   vm_datadsk = var.local_xenv_vm_size
@@ -27,7 +27,7 @@ module "xenv-vm" {
 }
 
 module "xenv-dns" {
- source = "../../../globals/terraform/modules/dns/"
+ source = "./modules/dns/"
  vm_count = var.local_xenv_vm_count
  vm_envx = var.xenv_envx["${var.zz_env}"]
  vm_prefix = var.xenv_vm_prefix["${var.zz_env}"]
