@@ -193,4 +193,4 @@ variable local_xenv_vm_size {}
 variable local_xenv_ip_list {
         type = list(string)
 }
-
+variable local_base_domain { default = "infra.local" }

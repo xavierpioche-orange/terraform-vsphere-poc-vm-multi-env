@@ -59,7 +59,7 @@ resource "vsphere_virtual_machine" "vm" {
 	timeout = 0
         linux_options {
           host_name = "${var.vm_prefix}-${var.vm_suffix}-${count.index + 1}"
-          domain = "${var.vm_envx}.ms.fcm"
+          domain = "${var.vm_envx}.${var.vm_base_domain}"
         }
        network_interface { 
 		ipv4_address = var.vm_ipaddress[count.index]
@@ -67,7 +67,7 @@ resource "vsphere_virtual_machine" "vm" {
 	   } 
 	   ipv4_gateway = var.vm_gateway
            dns_server_list = [var.vm_dns_list]
-           dns_suffix_list = [var.vm_dns_search]
+           dns_suffix_list = ["${var.vm_dns_search}.${var.vm_base_domain}"]
       }
     }	
   connection {

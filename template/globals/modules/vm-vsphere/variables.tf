@@ -2,7 +2,7 @@ variable "vm_datacenter" {}
 variable "vm_envx" {} 
 variable "vm_prefix" {}
 variable "vm_suffix" {}
-variable "vm_template" { default="rhel78" }
+variable "vm_template" { default="rhel78a" }
 variable "vm_network1" {}
 variable "vm_ipaddress" {
   type = list
@@ -15,6 +15,7 @@ variable "vm_count" {}
 variable "vm_folder" {}
 variable "vm_dns_list" {}
 variable "vm_dns_search" {}
+variable "vm_base_domain" { default = "infra.local" }
 
 variable "vm_cpu" {}
 variable "vm_cpu_map" {

@@ -24,6 +24,7 @@ module "xenv-vm" {
   vm_folder = var.xenv_folder["${var.zz_env}"]
   vm_dns_list = var.xenv_dns_list["${var.zz_env}"]
   vm_dns_search = var.xenv_dns_search["${var.zz_env}"]
+  vm_base_domain = "${var.local_base_domain}"
 }
 
 module "xenv-dns" {
@@ -33,6 +34,7 @@ module "xenv-dns" {
  vm_prefix = var.xenv_vm_prefix["${var.zz_env}"]
  vm_suffix = var.local_all_vm_suffix
  vm_ipaddress = ["${var.xenv_network1_subnet["${var.zz_env}"]}.${var.local_xenv_ip_list[0]}","${var.xenv_network1_subnet["${var.zz_env}"]}.${var.local_xenv_ip_list[1]}","${var.xenv_network1_subnet["${var.zz_env}"]}.${var.local_xenv_ip_list[2]}","${var.xenv_network1_subnet["${var.zz_env}"]}.${var.local_xenv_ip_list[3]}"]
+ vm_base_domain = "${var.local_base_domain}"
 }
 
 output "ips" {
